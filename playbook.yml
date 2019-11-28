@@ -1,0 +1,9 @@
+---
+- name: get output
+  hosts: all
+  gather_facts: no
+  tasks:
+   - iosxr_command:
+       commands: show version
+     register: output
+   - debug: var=output.stdout_lines
